@@ -1,0 +1,5 @@
+input_data_path: "ml_project/data/test.csv"
+prediction_path: "ml_project/data/test_prediction.txt"
+target_path: "ml_project/data/test_target.csv" # если нет таргета, то вписать ""
+model_path: "ml_project/models/model.pkl"
+metric_path: "ml_project/models/metrics_test.json"

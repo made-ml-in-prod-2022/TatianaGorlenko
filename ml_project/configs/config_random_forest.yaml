@@ -1,0 +1,28 @@
+input_data_path: "ml_project/data/data.csv"
+output_model_path: "ml_project/models/model.pkl"
+metric_path: "ml_project/models/metrics_random_forest.json"
+splitting_params:
+  val_size: 0.2
+  random_state: 4
+train_params:
+  model_type: "RandomForestClassifier"
+  criterion: "entropy"
+  random_state: 12314
+  n_estimators: 100
+feature_params:
+  categorical_features:
+    - "sex"
+    - "cp"
+    - "fbs"
+    - "restecg"
+    - "exang"
+    - "slope"
+    - "ca"
+    - "thal"
+  numerical_features:
+    - "age"
+    - "trestbps"
+    - "chol"
+    - "thalach"
+    - "oldpeak"
+  target_col: "condition"
