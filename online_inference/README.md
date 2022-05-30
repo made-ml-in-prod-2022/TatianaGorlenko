@@ -19,4 +19,3 @@ docker run -p 8000:8000 tgorlenko/online_inference:v1
 ~~~
 python online_inference/make_request.py
 ~~~
-

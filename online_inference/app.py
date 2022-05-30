@@ -64,10 +64,5 @@ def predict(request: HeartDiseaseModel):
     return make_predict(request.data, request.features, model)
 
 
-# @app.get("/predict")
-# def predict(x):
-#     return int(x) ** 2
-
-
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=os.getenv("PORT", 8000))
