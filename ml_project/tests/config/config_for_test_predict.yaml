@@ -1,0 +1,5 @@
+input_data_path: "ml_project/tests/for_tests/dataset.csv"
+prediction_path: "ml_project/tests/for_tests/test_prediction.txt"
+target_path: ""
+model_path: "ml_project/tests/for_tests/model.pkl"
+metric_path: "ml_project/tests/for_tests/metrics.json"
