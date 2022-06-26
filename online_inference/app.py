@@ -1,7 +1,7 @@
 import logging
 import os
 import pickle
-from typing import List, Union, Optional
+from typing import List, Optional
 
 
 import pandas as pd
@@ -9,9 +9,12 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sklearn.pipeline import Pipeline
 import uvicorn
+import time
 
 
 logger = logging.getLogger(__name__)
+START_SLEEP_TIME = 20
+LIVE_TIME = 120
 
 class HeartDiseaseModel(BaseModel):
     data: List[List[int]]
@@ -35,6 +38,7 @@ def make_predict(data: List, features: List[str], model: Pipeline)-> List[Сondi
 
 
 app = FastAPI()
+start_time = time.time()
 
 
 def load_object(path: str) -> Pipeline:
@@ -52,10 +56,14 @@ def load_model():
         raise RuntimeError(err)
 
     model = load_object(model_path)
+    time.sleep(START_SLEEP_TIME)
+    
 
 
 @app.get("/health")
 def health() -> bool:
+    if time.time() - start_time > LIVE_TIME:
+        sys.exit(1)
     return not (model is None)
 
 
